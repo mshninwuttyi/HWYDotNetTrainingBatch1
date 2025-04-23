@@ -1,97 +1,47 @@
-﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
+﻿using HWYDotNetTrainingBatch1.ConsoleApp;
 
-//string name = "C";
-//if(name == "A")
-//{
-//    Console.WriteLine("Run");
-//}
-//else if(name == "B")
-//{
-//    Console.WriteLine("Sleep");
-//}
-//else if (name == "C")
-//{
-//    Console.WriteLine("Eat");
-//}
-//else
-//{
-//    Console.WriteLine("Nothing");
-//}
+BeforeSystem:
 
-//switch (name)
-//{
-//    case "A":
-//        Console.WriteLine("Run");
-//        break;
-//    case "B":
-//        Console.WriteLine("Sleep");
-//        break;
-//    case "C":
-//        Console.WriteLine("Eat");
-//        break;
-//    default:
-//        Console.WriteLine("Nothing");
-//        break;
-//}
+Console.WriteLine("Inventory Management System");
 
-//string[] str = { "A", "B", "C", "D" };
+Console.WriteLine("1. Create Product");
+Console.WriteLine("2. View Products");
+Console.WriteLine("3. Update Product");
+Console.WriteLine("4. Delete Product");
+Console.WriteLine("5. Exit");
 
-////for(int i=0; i<str.Length ; i++)
-////{
-////    Console.WriteLine(i);
-////}
+Console.Write("Select an option: ");
+int option = int.Parse(Console.ReadLine()!);
 
-//foreach (string item in str)
-//{
-//    Console.WriteLine(item);
-//}
+InventoryService inventoryService = new InventoryService();
 
-//Console.ReadLine();
-
-//Resume resume = new Resume();
-Resume resume = new Resume("Mg Mg", 18);
-//resume.Name = "Mg Mg";
-//resume.Age = 18;
-//var result = resume.Is18Year();
-resume.SetAge(16);
-Console.WriteLine(resume.Name);
-Console.WriteLine(resume.Age);
-Console.WriteLine(resume.Is18);
-//Console.WriteLine(result);  
-
-
-Resume resume2 = new Resume();
-resume2.Name = "Ma Ma";
-//resume.Age = 25;
-
-public class Resume
+switch (option)
 {
-    public Resume()
-    {
-        Name = "None";
-    }
-    public Resume(string name, int age)
-    {
-        Name = name;
-        Age = age;
-    }
-
-    public string Name { get; set; }
-    public int Age { get; private set; }
-    public bool Is18 {
-        get { return Age > 18; }
-            }
-
-    public void SetAge(int age)
-    {
-        Console.WriteLine($"Before {Age}");
-        Age = age;
-        Console.WriteLine($"Before {Age}");
-    }
-    //public bool Is18Year()
-    //{
-    //    return Age > 18;  
-    //}
+    case 1:
+        Console.WriteLine("Create Product");
+        inventoryService.CreateProduct();
+        break;
+    case 2:
+        Console.WriteLine("View Products");
+        inventoryService.ViewProducts();
+        break;
+    case 3:
+        Console.WriteLine("Update Product");
+        inventoryService.UpdateProduct();
+        break;
+    case 4:
+        Console.WriteLine("Delete Product");
+        inventoryService.DeleteProduct();
+        break;
+    case 5:
+        Console.WriteLine("Exiting...");
+        goto Exit;
+    default:
+        Console.WriteLine("Invalid option. Please try again.");
+        break;
 }
 
+goto BeforeSystem;
+
+Exit:
+Console.ReadKey();
