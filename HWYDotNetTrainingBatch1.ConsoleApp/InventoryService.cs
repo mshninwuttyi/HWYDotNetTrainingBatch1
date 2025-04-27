@@ -8,43 +8,44 @@ namespace HWYDotNetTrainingBatch1.ConsoleApp
 {
     internal class InventoryService
     {
-        public void CreateProduct()
+
+        public void CreatProduct()
         {
-            Console.Write("Input Product Name: ");
+            Console.WriteLine("Input Product Name: ");
             string productName = Console.ReadLine()!;
 
             BeforePrice:
-            Console.Write("Input Product Price: ");
+            Console.WriteLine("Input Product Price: ");
             string priceResult = Console.ReadLine()!;
-            decimal price = 0;
+
+            decimal price;
             bool isDecimal = decimal.TryParse(priceResult, out price);
-            //if (isDecimal == false)
-            if (!isDecimal)
+            if (isDecimal == false)
             {
-                Console.WriteLine("Invalid Price.");
+                Console.WriteLine("Invalid Price");
                 goto BeforePrice;
             }
 
             BeforeQuantity:
-            Console.Write("Input Product Quantity: ");
-            string quantityResult = Console.ReadLine()!;
-            int quantity = 0;
-            bool isInt = int.TryParse(quantityResult, out quantity);
-            if (!isInt)
+            Console.WriteLine("Input Product Quantity");
+            string qtyResult = Console.ReadLine()!;
+
+            int qty;
+            bool isQty = int.TryParse(qtyResult, out qty);
+            if (isQty == false)
             {
-                Console.WriteLine("Invalid Quantity.");
+                Console.WriteLine("Invalid Quantity");
                 goto BeforeQuantity;
             }
 
-            Data.ProductId++;
+            int no = Data.Products.Max(x=> x.Id) +1; // 3+1 = 4
+            Data.ProductId = no;
 
             string productCode = "P" + Data.ProductId.ToString().PadLeft(3, '0');
-
-            Product product = new Product(Data.ProductId, productCode, productName, price, quantity, "Fruit");
+            Product product = new Product(Data.ProductId, productCode, productName, price, qty, "Fruit");
             Data.Products.Add(product);
-            //Data.Products2[Data.ProductId - 1] = product;
 
-            Console.WriteLine("Product Insert Successfully.");
+            Console.WriteLine("Product Insert Successfully");
         }
 
         public void ViewProducts()
@@ -55,58 +56,5 @@ namespace HWYDotNetTrainingBatch1.ConsoleApp
                 Console.WriteLine($"Id: {product.Id}, Code: {product.Code}, Name: {product.Name}, Price: {product.Price}, Quantity: {product.Quantity}, Category: {product.Category}");
             }
         }
-
-        public void UpdateProduct()
-        {
-            BeforeProductCode:
-            Console.Write("Input Product Code: ");
-            string code = Console.ReadLine()!;
-
-            var product = Data.Products.FirstOrDefault(p => p.Code == code);
-            if (product is null)
-            {
-                Console.WriteLine("Product Not Found.");
-                goto BeforeProductCode;
-            }
-
-            Console.WriteLine("Product Found.");
-            Console.WriteLine($"Code: {product.Code}, Name: {product.Name}, Quantity: {product.Quantity}");
-
-            BeforeInputQuantity:
-            Console.Write("Input Quantity: ");
-            string quantityResult = Console.ReadLine()!;
-
-            int quantity = 0;
-            bool isInt = int.TryParse(quantityResult, out quantity);
-            if (!isInt)
-            {
-                Console.WriteLine("Invalid Quantity.");
-                goto BeforeInputQuantity;
-            }
-
-            //product.Quantity = product.Quantity - quantity;
-            product.Quantity -= quantity;
-            Console.WriteLine("Product Updated Successfully.");
-        }
-
-        public void DeleteProduct()
-        {
-            BeforeProductCode:
-            Console.Write("Input Product Code: ");
-            string code = Console.ReadLine()!;
-
-            var product = Data.Products.FirstOrDefault(p => p.Code == code);
-            if (product is null)
-            {
-                Console.WriteLine("Product Not Found.");
-                goto BeforeProductCode;
-            }
-
-            Console.WriteLine("Product Found.");
-            Console.WriteLine($"Code: {product.Code}, Name: {product.Name}, Quantity: {product.Quantity}");
-
-            Data.Products.Remove(product);
-        }
-
     }
 }
