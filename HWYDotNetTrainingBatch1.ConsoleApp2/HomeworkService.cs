@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HWYDotNetTrainingBatch1.ConsoleApp2
 {
@@ -74,5 +75,139 @@ namespace HWYDotNetTrainingBatch1.ConsoleApp2
             Console.WriteLine(dr["GitHubUserName"]);
             Console.WriteLine("--------------------------");
         }
-    }
+
+        public void Create()
+        {
+            Console.WriteLine("Enter Name: ");
+            string name = Console.ReadLine()!;
+
+            Console.WriteLine("Enter GitHubUserName: ");
+            string gitHubUserName = Console.ReadLine()!;
+
+            Console.WriteLine("Enter GitHuhRepoLink: ");
+            string gitHuhRepoLink = Console.ReadLine()!;
+
+            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+
+            string query = $@"
+INSERT INTO [dbo].[Tbl_Homework]
+           ([Name]
+           ,[GitHubUserName]
+           ,[GitHubRepoLink])
+     VALUES
+           (@Name1
+           ,@GitHubUserName1
+           ,@GitHubRepoLink1)";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@Name1", name);
+            cmd.Parameters.AddWithValue("@GitHubUserName1", gitHubUserName);
+            cmd.Parameters.AddWithValue("@GitHubRepoLink1", gitHuhRepoLink);
+
+            int result = cmd.ExecuteNonQuery();
+
+            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //adapter.Fill(dt);
+
+            connection.Close();
+        }
+
+        public void Update()
+        {
+            Console.WriteLine("Enter Id: ");
+            string no = Console.ReadLine()!;
+
+            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+
+            string query = $"select * from Tbl_Homework where No = {no}";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            if (dt.Rows.Count == 0)
+            {
+                Console.WriteLine("No record found.");
+                return;
+            }
+
+            Console.WriteLine("Enter Name: ");
+            string name = Console.ReadLine()!;
+
+            Console.WriteLine("Enter GitHubUserName: ");
+            string gitHubUserName = Console.ReadLine()!;
+
+            Console.WriteLine("Enter GitHuhRepoLink: ");
+            string gitHuhRepoLink = Console.ReadLine()!;
+
+            //SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            //connection.Open();
+
+            string query2 = $@"
+UPDATE [dbo].[Tbl_Homework]
+   SET [Name] = @Name1
+      ,[GitHubUserName] = @GitHubUserName1 
+      ,[GitHubRepoLink] = @GitHubRepoLink1
+ WHERE No = @Id";
+
+            SqlCommand cmd2 = new SqlCommand(query2, connection);
+            cmd2.Parameters.AddWithValue("@Id", no);
+            cmd2.Parameters.AddWithValue("@Name1", name);
+            cmd2.Parameters.AddWithValue("@GitHubUserName1", gitHubUserName);
+            cmd2.Parameters.AddWithValue("@GitHubRepoLink1", gitHuhRepoLink);
+
+            int result = cmd2.ExecuteNonQuery();
+
+            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //adapter.Fill(dt);
+
+            connection.Close();
+        }
+
+        public void Delete()
+        {
+            Console.WriteLine("Enter Id: ");
+            string no = Console.ReadLine()!;
+
+            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+
+            string query = $"select * from Tbl_Homework where NO = {no}";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            connection.Close();
+
+            if (dt.Rows.Count == 0)
+            {
+                Console.WriteLine("No record found.");
+                return;
+            }
+            if (dt.Rows.Count == 0)
+                Console.WriteLine("Are you sure want to delete? (Y/N)");
+            string confirm = Console.ReadLine()!;
+            if (confirm.ToUpper() == "Y")
+            {
+                SqlConnection connection2 = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+                connection.Open();
+
+                string query2 = $@"
+Delete [dbo].[Tbl_Homework]
+ WHERE No = @Id";
+
+                SqlCommand cmd2 = new SqlCommand(query2, connection);
+                cmd2.Parameters.AddWithValue("@Id", no);
+
+                int result = cmd2.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        }
 }
+   
