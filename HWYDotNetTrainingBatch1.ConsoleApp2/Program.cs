@@ -3,8 +3,16 @@ using HWYDotNetTrainingBatch1.ConsoleApp2;
 
 Console.WriteLine("Hello, World!");
 
-HomeworkService service = new HomeworkService();
-service.Read();
-service.Detail(1);
-service.Create();
-service.Delete();
+//HomeworkService service = new HomeworkService();
+//service.Read();
+//service.Detail(1);
+//service.Create();
+//service.Read();
+//service.Delete();
+//service.Read();
+
+
+
+LoginDapperService serviceD = new LoginDapperService();
+serviceD.Read();
+Console.ReadLine();

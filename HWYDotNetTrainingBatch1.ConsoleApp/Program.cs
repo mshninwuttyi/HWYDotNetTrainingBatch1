@@ -15,31 +15,31 @@ int option = int.Parse(Console.ReadLine()!);
 
 InventoryService inventoryService = new InventoryService();
 
-switch (option)
-{
-    case 1:
-        Console.WriteLine("Create Product");
-        inventoryService.CreateProduct();
-        break;
-    case 2:
-        Console.WriteLine("View Products");
-        inventoryService.ViewProducts();
-        break;
-    case 3:
-        Console.WriteLine("Update Product");
-        inventoryService.UpdateProduct();
-        break;
-    case 4:
-        Console.WriteLine("Delete Product");
-        inventoryService.DeleteProduct();
-        break;
-    case 5:
-        Console.WriteLine("Exiting...");
-        goto Exit;
-    default:
-        Console.WriteLine("Invalid option. Please try again.");
-        break;
-}
+//switch (option)
+//{
+//    case 1:
+//        Console.WriteLine("Create Product");
+//        inventoryService.CreateProduct();
+//        break;
+//    case 2:
+//        Console.WriteLine("View Products");
+//        inventoryService.ViewProducts();
+//        break;
+//    case 3:
+//        Console.WriteLine("Update Product");
+//        inventoryService.UpdateProduct();
+//        break;
+//    case 4:
+//        Console.WriteLine("Delete Product");
+//        inventoryService.DeleteProduct();
+//        break;
+//    case 5:
+//        Console.WriteLine("Exiting...");
+//        goto Exit;
+//    default:
+//        Console.WriteLine("Invalid option. Please try again.");
+//        break;
+//}
 
 goto BeforeSystem;
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HWYDotNetTrainingBatch1.ConsoleApp2
@@ -79,7 +80,7 @@ namespace HWYDotNetTrainingBatch1.ConsoleApp2
         public void Create()
         {
             Console.WriteLine("Enter Name: ");
-            string name = Console.ReadLine()!;
+            string name = Console.ReadLine()!;    
 
             Console.WriteLine("Enter GitHubUserName: ");
             string gitHubUserName = Console.ReadLine()!;
@@ -96,16 +97,15 @@ INSERT INTO [dbo].[Tbl_Homework]
            ,[GitHubUserName]
            ,[GitHubRepoLink])
      VALUES
-           (@Name1
-           ,@GitHubUserName1
-           ,@GitHubRepoLink1)";
+           (@Name
+           ,@GitHubUserName
+           ,@GitHubRepoLink)";
 
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@Name1", name);
-            cmd.Parameters.AddWithValue("@GitHubUserName1", gitHubUserName);
-            cmd.Parameters.AddWithValue("@GitHubRepoLink1", gitHuhRepoLink);
+            cmd.Parameters.AddWithValue("@Name", name);
+            cmd.Parameters.AddWithValue("@GitHubUserName", gitHubUserName);
+            cmd.Parameters.AddWithValue("@GitHubRepoLink", gitHuhRepoLink);
 
-            int result = cmd.ExecuteNonQuery();
 
             //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             //DataTable dt = new DataTable();
@@ -208,6 +208,32 @@ Delete [dbo].[Tbl_Homework]
             }
         }
 
+        public void LoginWithStoredProcedure()
+        {
+            Console.Write("Enter UserName: ");
+            string userName = Console.ReadLine()!;
+
+            Console.Write("Enter Password: ");
+            string password = Console.ReadLine()!;
+
+            string query = @$"Sp_Login";
+
+            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserName", userName);
+            cmd.Parameters.AddWithValue("@Password", password);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            connection.Close();
         }
+
+
+
+    }
 }
    
