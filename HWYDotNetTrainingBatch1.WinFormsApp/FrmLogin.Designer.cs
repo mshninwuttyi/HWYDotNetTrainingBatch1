@@ -32,7 +32,7 @@
             lblUseName = new Label();
             lblPassword = new Label();
             txtPassword = new TextBox();
-            btbLogin = new Button();
+            btnLogin = new Button();
             btnCancel = new Button();
             SuspendLayout();
             // 
@@ -75,18 +75,18 @@
             txtPassword.Size = new Size(301, 29);
             txtPassword.TabIndex = 3;
             // 
-            // btbLogin
+            // btnLogin
             // 
-            btbLogin.BackColor = Color.FromArgb(46, 125, 50);
-            btbLogin.FlatStyle = FlatStyle.Flat;
-            btbLogin.ForeColor = Color.White;
-            btbLogin.Location = new Point(223, 189);
-            btbLogin.Name = "btbLogin";
-            btbLogin.Size = new Size(119, 37);
-            btbLogin.TabIndex = 4;
-            btbLogin.Text = "&Login";
-            btbLogin.UseVisualStyleBackColor = false;
-            btbLogin.Click += this.btbLogin_Click;
+            btnLogin.BackColor = Color.FromArgb(46, 125, 50);
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(223, 189);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(119, 37);
+            btnLogin.TabIndex = 4;
+            btnLogin.Text = "&Login";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // btnCancel
             // 
@@ -107,7 +107,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(451, 293);
             Controls.Add(btnCancel);
-            Controls.Add(btbLogin);
+            Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(lblPassword);
             Controls.Add(lblUseName);
@@ -128,7 +128,7 @@
         private Label lblUseName;
         private Label lblPassword;
         private TextBox txtPassword;
-        private Button btbLogin;
+        private Button btnLogin;
         private Button btnCancel;
     }
 }
