@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Databases\HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Databases.csproj" />
+  </ItemGroup>
+
+</Project>
