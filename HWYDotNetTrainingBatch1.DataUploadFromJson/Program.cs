@@ -10,6 +10,7 @@ using HWYDotNetTrainingBatch1.DataUploadFromJson;
 
 Console.WriteLine("Hello, World!");
 
-//DataUploadService _dataUpload = new DataUploadService();
-//_dataUpload.Read();
+DataUploadService _dataUpload = new DataUploadService();
+_dataUpload.UploadBlogHeaderFromJson();
+_dataUpload.UploadBlogDetailFromJson();
 Console.ReadLine();

@@ -16,8 +16,8 @@ Console.WriteLine("Hello, World!");
 //LoginDapperService serviceD = new LoginDapperService();
 //serviceD.Read();
 
-HomeworkService _dataUpload = new HomeworkService();
-//_dataUpload.UploadBlogHeaderFromJson();
-_dataUpload.UploadBlogDetailFromJson();
+//HomeworkService _dataUpload = new HomeworkService();
+////_dataUpload.UploadBlogHeaderFromJson();
+//_dataUpload.UploadBlogDetailFromJson();
 
 Console.ReadLine();
