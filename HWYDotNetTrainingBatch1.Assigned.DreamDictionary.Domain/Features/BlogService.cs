@@ -35,7 +35,7 @@ namespace HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Domain.Features
         {
             try
             {
-                var lst = _dbContext.TblBlogDetails.FirstOrDefault(x => x.BlogId == id);
+                var lst = _dbContext.TblBlogDetails.Where(x => x.BlogId == id).ToList();
                 return new ResponseModel(true, "Success", lst);
             }
             catch (Exception ex)
