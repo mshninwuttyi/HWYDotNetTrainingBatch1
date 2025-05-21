@@ -11,13 +11,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWYDotNetTrainingBatch1.Win
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HWYDotNetTrainingBatch1.Assigned.DreamDictionary", "HWYDotNetTrainingBatch1.Assigned.DreamDictionary", "{699FFDE8-0B93-4044-9D9A-55F391762633}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Databases", "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Databases\HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Databases.csproj", "{F375AA05-45C9-4A52-A526-97386392C1AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Databases", "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Databases\HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Databases.csproj", "{F375AA05-45C9-4A52-A526-97386392C1AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Domain", "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Domain\HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Domain.csproj", "{70B60E42-8356-4981-B417-5842FF9C0111}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Domain", "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Domain\HWYDotNetTrainingBatch1.Assigned.DreamDictionary.Domain.csproj", "{70B60E42-8356-4981-B417-5842FF9C0111}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.WebApi", "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.WebApi\HWYDotNetTrainingBatch1.Assigned.DreamDictionary.WebApi.csproj", "{89D8FE75-9184-4A64-BC0C-5DF3A377A304}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.WebApi", "HWYDotNetTrainingBatch1.Assigned.DreamDictionary.WebApi\HWYDotNetTrainingBatch1.Assigned.DreamDictionary.WebApi.csproj", "{89D8FE75-9184-4A64-BC0C-5DF3A377A304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWYDotNetTrainingBatch1.DataUploadFromJson", "HWYDotNetTrainingBatch1.DataUploadFromJson\HWYDotNetTrainingBatch1.DataUploadFromJson.csproj", "{3F7C66BC-F861-4614-AD48-90E1962AC87D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWYDotNetTrainingBatch1.DataUploadFromJson", "HWYDotNetTrainingBatch1.DataUploadFromJson\HWYDotNetTrainingBatch1.DataUploadFromJson.csproj", "{3F7C66BC-F861-4614-AD48-90E1962AC87D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{9EB7A97A-7397-4781-8314-D2D33DB8AB19}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe2.md = ReadMe2.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
